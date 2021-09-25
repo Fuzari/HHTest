@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308788726FEA7790012FDB7 /* VacancyCell.swift */; };
+		2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */; };
 		234B852026F6291F00E8754F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B851F26F6291F00E8754F /* AppDelegate.swift */; };
 		234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B852126F6291F00E8754F /* SceneDelegate.swift */; };
 		234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B852326F6291F00E8754F /* VacanciesListViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		2308788726FEA7790012FDB7 /* VacancyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCell.swift; sourceTree = "<group>"; };
+		2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ClassDequeue.swift"; sourceTree = "<group>"; };
 		234B851C26F6291F00E8754F /* hhTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hhTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		234B851F26F6291F00E8754F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		234B852126F6291F00E8754F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				234B853A26FBD48900E8754F /* UIView+Constraints .swift */,
+				2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
+				2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
 				234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */,
 			);
