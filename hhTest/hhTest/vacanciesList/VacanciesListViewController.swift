@@ -7,14 +7,26 @@
 
 import UIKit
 
-final class VacanciesListViewController: UIViewController {
+final class VacanciesListViewController: UIViewController, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCellWith(type: VacancyCell.self, for: indexPath) else {
+            fatalError("Received unexpected nil value \(#file) \(#line)")
+        }
+        
+        return cell
+    }
+    
     private let vacanciesSearchBar: UISearchBar = UISearchBar()
     private let vacanciesTableView: UITableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
-        layoutSubViews()
+        layoutViews()
     }
     
     private func configureViews() {
@@ -32,9 +44,11 @@ final class VacanciesListViewController: UIViewController {
     
     private func configureVacanciesTableView() {
         vacanciesTableView.separatorStyle = .none
+        vacanciesTableView.registerCellWith(type: VacancyCell.self)
+        vacanciesTableView.dataSource = self
     }
     
-    private func layoutSubViews() {
+    private func layoutViews() {
         layoutVacanciesSearchBar()
         layoutVacanciesTableView()
     }
