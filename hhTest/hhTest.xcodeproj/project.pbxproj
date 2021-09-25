@@ -12,6 +12,8 @@
 		234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B852326F6291F00E8754F /* VacanciesListViewController.swift */; };
 		234B852926F6292100E8754F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 234B852826F6292100E8754F /* Assets.xcassets */; };
 		234B852C26F6292100E8754F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234B852A26F6292100E8754F /* LaunchScreen.storyboard */; };
+		234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853A26FBD48900E8754F /* UIView+Constraints .swift */; };
+		234B853E26FBD69700E8754F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853D26FBD69700E8754F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		234B852826F6292100E8754F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		234B852B26F6292100E8754F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		234B852D26F6292100E8754F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		234B853A26FBD48900E8754F /* UIView+Constraints .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints .swift"; sourceTree = "<group>"; };
+		234B853D26FBD69700E8754F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				234B853326F6296E00E8754F /* app */,
+				234B853826FBD41100E8754F /* core */,
 				234B853526F629A300E8754F /* launchScreen */,
 				234B853426F6298000E8754F /* resources */,
 				234B853626F62AD200E8754F /* vacanciesList */,
@@ -94,6 +99,31 @@
 				234B852326F6291F00E8754F /* VacanciesListViewController.swift */,
 			);
 			path = vacanciesList;
+			sourceTree = "<group>";
+		};
+		234B853826FBD41100E8754F /* core */ = {
+			isa = PBXGroup;
+			children = (
+				234B853C26FBD68000E8754F /* design */,
+				234B853926FBD41A00E8754F /* extensions */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		234B853926FBD41A00E8754F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				234B853A26FBD48900E8754F /* UIView+Constraints .swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		234B853C26FBD68000E8754F /* design */ = {
+			isa = PBXGroup;
+			children = (
+				234B853D26FBD69700E8754F /* Colors.swift */,
+			);
+			path = design;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */,
+				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
 				234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */,
