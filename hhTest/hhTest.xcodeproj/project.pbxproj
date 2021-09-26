@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308788726FEA7790012FDB7 /* VacancyCell.swift */; };
 		2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */; };
+		2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308788D26FFE8900012FDB7 /* IVacancyResponse.swift */; };
+		2308789126FFEFC60012FDB7 /* VacancyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308789026FFEFC60012FDB7 /* VacancyResponse.swift */; };
 		234B852026F6291F00E8754F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B851F26F6291F00E8754F /* AppDelegate.swift */; };
 		234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B852126F6291F00E8754F /* SceneDelegate.swift */; };
 		234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B852326F6291F00E8754F /* VacanciesListViewController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		2308788726FEA7790012FDB7 /* VacancyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCell.swift; sourceTree = "<group>"; };
 		2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ClassDequeue.swift"; sourceTree = "<group>"; };
+		2308788D26FFE8900012FDB7 /* IVacancyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVacancyResponse.swift; sourceTree = "<group>"; };
+		2308789026FFEFC60012FDB7 /* VacancyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyResponse.swift; sourceTree = "<group>"; };
 		234B851C26F6291F00E8754F /* hhTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hhTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		234B851F26F6291F00E8754F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		234B852126F6291F00E8754F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,31 @@
 				2308788726FEA7790012FDB7 /* VacancyCell.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		2308788B26FFE7F20012FDB7 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				2308788C26FFE8050012FDB7 /* vacancies */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		2308788C26FFE8050012FDB7 /* vacancies */ = {
+			isa = PBXGroup;
+			children = (
+				2308788F26FFE9C10012FDB7 /* response */,
+			);
+			path = vacancies;
+			sourceTree = "<group>";
+		};
+		2308788F26FFE9C10012FDB7 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				2308788D26FFE8900012FDB7 /* IVacancyResponse.swift */,
+				2308789026FFEFC60012FDB7 /* VacancyResponse.swift */,
+			);
+			path = response;
 			sourceTree = "<group>";
 		};
 		234B851326F6291F00E8754F = {
@@ -119,6 +148,7 @@
 			children = (
 				234B853C26FBD68000E8754F /* design */,
 				234B853926FBD41A00E8754F /* extensions */,
+				2308788B26FFE7F20012FDB7 /* network */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -211,7 +241,9 @@
 			files = (
 				234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */,
 				2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */,
+				2308789126FFEFC60012FDB7 /* VacancyResponse.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
+				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
 				2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
