@@ -18,6 +18,7 @@
 		234B852C26F6292100E8754F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234B852A26F6292100E8754F /* LaunchScreen.storyboard */; };
 		234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853A26FBD48900E8754F /* UIView+Constraints .swift */; };
 		234B853E26FBD69700E8754F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853D26FBD69700E8754F /* Colors.swift */; };
+		23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0850E27027F5C004DE914 /* HHTestApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		234B852D26F6292100E8754F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		234B853A26FBD48900E8754F /* UIView+Constraints .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints .swift"; sourceTree = "<group>"; };
 		234B853D26FBD69700E8754F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		23D0850E27027F5C004DE914 /* HHTestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHTestApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		2308788B26FFE7F20012FDB7 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				23D0850D27026D37004DE914 /* api */,
 				2308788C26FFE8050012FDB7 /* vacancies */,
 			);
 			path = network;
@@ -170,6 +173,14 @@
 			path = design;
 			sourceTree = "<group>";
 		};
+		23D0850D27026D37004DE914 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				23D0850E27027F5C004DE914 /* HHTestApi.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -245,6 +256,7 @@
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
+				23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */,
 				2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
 				234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */,
