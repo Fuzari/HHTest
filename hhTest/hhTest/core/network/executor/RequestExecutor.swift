@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  RequestExecutor.swift
 //  hhTest
 //
 //  Created by Андрей Яковлев on 28.09.2021.
@@ -11,7 +11,7 @@ typealias EmptyClosure = () -> Void
 typealias ParameterClosure<T> = (T) -> Void
 typealias ResponseCompletion<T> = (Result<T, NetworkError>) -> Void
 
-struct NetworkManager {
+struct RequestExecutor {
     private let urlSession = URLSession(configuration: .default)
     
     func execute<T: Decodable>(request: URLRequest, with type: T.Type, completion: @escaping ResponseCompletion<T>){
