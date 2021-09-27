@@ -19,6 +19,7 @@
 		234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853A26FBD48900E8754F /* UIView+Constraints .swift */; };
 		234B853E26FBD69700E8754F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853D26FBD69700E8754F /* Colors.swift */; };
 		23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0850E27027F5C004DE914 /* HHTestApi.swift */; };
+		23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851227028051004DE914 /* URLComponents+QueryItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		234B853A26FBD48900E8754F /* UIView+Constraints .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints .swift"; sourceTree = "<group>"; };
 		234B853D26FBD69700E8754F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		23D0850E27027F5C004DE914 /* HHTestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHTestApi.swift; sourceTree = "<group>"; };
+		23D0851227028051004DE914 /* URLComponents+QueryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryItems.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +161,8 @@
 		234B853926FBD41A00E8754F /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				234B853A26FBD48900E8754F /* UIView+Constraints .swift */,
-				2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */,
+				23D0851127028019004DE914 /* foundation */,
+				23D0851027028002004DE914 /* UI */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -179,6 +181,23 @@
 				23D0850E27027F5C004DE914 /* HHTestApi.swift */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		23D0851027028002004DE914 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				234B853A26FBD48900E8754F /* UIView+Constraints .swift */,
+				2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		23D0851127028019004DE914 /* foundation */ = {
+			isa = PBXGroup;
+			children = (
+				23D0851227028051004DE914 /* URLComponents+QueryItems.swift */,
+			);
+			path = foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +272,7 @@
 				234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */,
 				2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */,
 				2308789126FFEFC60012FDB7 /* VacancyResponse.swift in Sources */,
+				23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
