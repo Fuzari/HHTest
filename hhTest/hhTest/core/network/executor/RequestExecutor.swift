@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  RequestExecutor.swift
 //  hhTest
 //
 //  Created by Андрей Яковлев on 28.09.2021.
