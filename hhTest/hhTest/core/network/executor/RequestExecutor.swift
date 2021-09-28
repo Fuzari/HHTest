@@ -16,11 +16,16 @@ struct RequestExecutor {
     
     func execute<T: Decodable>(request: URLRequest, with type: T.Type, completion: @escaping ResponseCompletion<T>){
         urlSession.dataTask(with: request) { data, response, error in
-            print(response)
-            guard let data = data else {
+            print(response.debugDescription)
+            guard let response = response else {
+                completion(.failure(NetworkError.clientError))
                 return
             }
             
+            guard let data = data else {
+                return
+            }
+            printLog(response: response, data: data)
             handleResponse(data: data, type: type, completion: completion)
         }.resume()
     }
@@ -34,5 +39,15 @@ struct RequestExecutor {
         }
         
         completion(.success(object))
+    }
+    
+    private func printLog(response: URLResponse, data: Data) {
+        print(response)
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+            print("JSON Serialization failed")
+            return
+        }
+        
+        print(json)
     }
 }
