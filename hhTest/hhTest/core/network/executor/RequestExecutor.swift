@@ -21,7 +21,7 @@ struct RequestExecutor {
             }
             
             handleResponse(data: data, type: type, completion: completion)
-        }
+        }.resume()
     }
     
     private func handleResponse<T: Decodable>(data: Data, type: T.Type, completion: @escaping ResponseCompletion<T>) {
