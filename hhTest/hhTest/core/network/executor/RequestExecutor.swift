@@ -16,6 +16,7 @@ struct RequestExecutor {
     
     func execute<T: Decodable>(request: URLRequest, with type: T.Type, completion: @escaping ResponseCompletion<T>){
         urlSession.dataTask(with: request) { data, response, error in
+            print(response)
             guard let data = data else {
                 return
             }

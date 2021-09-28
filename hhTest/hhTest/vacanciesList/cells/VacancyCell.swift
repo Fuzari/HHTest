@@ -69,11 +69,20 @@ final class VacancyCell: UITableViewCell {
         [vacancyNameLabel, salaryLabel, areaLabel, publishmentDateLabel, companyNameLabel].forEach( {$0.text = nil} )
     }
     
+    // MARK: - Public methods
+    func setup(vacancy: IVacancyModel) {
+        vacancyNameLabel.text = vacancy.name
+        salaryLabel.text = "\(vacancy.salary.lowerBoundary ?? 0) \(vacancy.salary.currency ?? "")"
+        areaLabel.text = vacancy.area.name
+        publishmentDateLabel.text = DateFormatter.localizedString(from: vacancy.publishedAt,
+                                                                  dateStyle: .short, timeStyle: .short)
+        companyNameLabel.text = vacancy.employer.name
+    }
+    
     // MARK: - Private methods
     private func configureCell() {
         selectionStyle = .none
         layoutViews()
-        textLabels()
         applyTheme()
     }
     
@@ -149,14 +158,5 @@ final class VacancyCell: UITableViewCell {
         backgroundColor = .clear
         holderView.backgroundColor = .secBg
         [vacancyNameLabel, salaryLabel, areaLabel, publishmentDateLabel, companyNameLabel].forEach( {$0.textColor = .textMain} )
-    }
-    
-    // TODO Удалить! Мок
-    private func textLabels() {
-        vacancyNameLabel.text = "iOS разработчик"
-        salaryLabel.text = "173000 до вычета"
-        areaLabel.text = "Москва"
-        publishmentDateLabel.text = "17.09.21"
-        companyNameLabel.text = "HeadHunter"
     }
 }
