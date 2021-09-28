@@ -1,0 +1,8 @@
+//
+//  VacanciesListNetworkLayer.swift
+//  hhTest
+//
+//  Created by Андрей Яковлев on 28.09.2021.
+//
+
+import Foundation
