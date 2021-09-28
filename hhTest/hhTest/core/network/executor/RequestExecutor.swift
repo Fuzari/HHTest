@@ -25,7 +25,6 @@ final class RequestExecutor: IRequestExecutor {
     
     func execute<T: Decodable>(request: URLRequest, with type: T.Type, completion: @escaping ResponseCompletion<T>) {
         urlSession.dataTask(with: request) { [weak self] data, response, error in
-            print(response.debugDescription)
             guard let response = response else {
                 completion(.failure(NetworkError.clientError))
                 return
@@ -49,5 +48,15 @@ final class RequestExecutor: IRequestExecutor {
         }
         
         completion(.success(object))
+    }
+    
+    private func printLog(response: URLResponse, data: Data) {
+        print(response)
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
+            print("JSON Serialization failed")
+            return
+        }
+        
+        print(json)
     }
 }
