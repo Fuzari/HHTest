@@ -11,7 +11,7 @@ typealias VacanciesResponseResult = Result<VacanciesResponseModel, NetworkError>
 typealias VacanciesResponseCompletion = ParameterClosure<VacanciesResponseResult>
 
 protocol IVacanciesListNetworkLayer {
-    func fetchVacanciesList(completion: @escaping VacanciesResponseCompletion)
+    func fetchVacanciesList(searchText: String?, perPage: Int, pageNumber: Int, completion: @escaping VacanciesResponseCompletion)
 }
 
 final class VacanciesListNetworkLayer: IVacanciesListNetworkLayer {
@@ -22,12 +22,12 @@ final class VacanciesListNetworkLayer: IVacanciesListNetworkLayer {
         self.executor = executor
     }
     
-    func fetchVacanciesList(completion: @escaping VacanciesResponseCompletion) {
+    func fetchVacanciesList(searchText: String?, perPage: Int, pageNumber: Int, completion: @escaping VacanciesResponseCompletion) {
         var urlComponents = URLComponents()
         urlComponents.scheme = HHApiScheme.https.rawValue
         urlComponents.host = HHApiHost.main.rawValue
         urlComponents.path = "/\(HHApiResources.vacancies.rawValue)"
-        let parameters: [String : String] = ["text": "iOS", "per_page": "2"]
+        let parameters: [String : String] = ["text": "\(searchText ?? "")", "per_page": "\(perPage)", "page": "\(pageNumber)"]
         urlComponents.setQueryItems(parameters: parameters)
         
         guard let url = urlComponents.url else {

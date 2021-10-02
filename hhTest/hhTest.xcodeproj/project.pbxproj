@@ -23,6 +23,7 @@
 		23D0851727028156004DE914 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851627028156004DE914 /* RequestExecutor.swift */; };
 		23D0851E27028D1B004DE914 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851D27028D1B004DE914 /* NetworkError.swift */; };
 		23D085212703B075004DE914 /* VacanciesListNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */; };
+		23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		23D0851627028156004DE914 /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		23D0851D27028D1B004DE914 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListNetworkLayer.swift; sourceTree = "<group>"; };
+		23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		234B853626F62AD200E8754F /* vacanciesList */ = {
 			isa = PBXGroup;
 			children = (
+				23D085222708BB85004DE914 /* viewModel */,
 				2308788626FEA73D0012FDB7 /* cells */,
 				234B852326F6291F00E8754F /* VacanciesListViewController.swift */,
 			);
@@ -233,6 +236,14 @@
 			path = layers;
 			sourceTree = "<group>";
 		};
+		23D085222708BB85004DE914 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +318,7 @@
 				234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */,
 				2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */,
 				2308789126FFEFC60012FDB7 /* VacancyResponse.swift in Sources */,
+				23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */,
 				23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
