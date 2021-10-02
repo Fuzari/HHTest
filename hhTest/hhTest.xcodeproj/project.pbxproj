@@ -24,6 +24,7 @@
 		23D0851E27028D1B004DE914 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851D27028D1B004DE914 /* NetworkError.swift */; };
 		23D085212703B075004DE914 /* VacanciesListNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */; };
 		23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */; };
+		23D085272709058C004DE914 /* VacanciesListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085262709058C004DE914 /* VacanciesListDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		23D0851D27028D1B004DE914 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListNetworkLayer.swift; sourceTree = "<group>"; };
 		23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListViewModel.swift; sourceTree = "<group>"; };
+		23D085262709058C004DE914 /* VacanciesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,9 +154,10 @@
 		234B853626F62AD200E8754F /* vacanciesList */ = {
 			isa = PBXGroup;
 			children = (
-				23D085222708BB85004DE914 /* viewModel */,
 				2308788626FEA73D0012FDB7 /* cells */,
+				23D085252709056E004DE914 /* dataSource */,
 				234B852326F6291F00E8754F /* VacanciesListViewController.swift */,
+				23D085222708BB85004DE914 /* viewModel */,
 			);
 			path = vacanciesList;
 			sourceTree = "<group>";
@@ -244,6 +247,14 @@
 			path = viewModel;
 			sourceTree = "<group>";
 		};
+		23D085252709056E004DE914 /* dataSource */ = {
+			isa = PBXGroup;
+			children = (
+				23D085262709058C004DE914 /* VacanciesListDataSource.swift */,
+			);
+			path = dataSource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,6 +336,7 @@
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
 				23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */,
 				2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */,
+				23D085272709058C004DE914 /* VacanciesListDataSource.swift in Sources */,
 				23D0851E27028D1B004DE914 /* NetworkError.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
 				234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */,
