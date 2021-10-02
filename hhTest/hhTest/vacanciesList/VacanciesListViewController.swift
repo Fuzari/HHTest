@@ -9,7 +9,11 @@ import UIKit
 
 final class VacanciesListViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        guard let model = responseModel else {
+            return 0
+        }
+        
+        return model.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -17,16 +21,32 @@ final class VacanciesListViewController: UIViewController, UITableViewDataSource
             fatalError("Received unexpected nil value \(#file) \(#line)")
         }
         
+        cell.setup(vacancy: responseModel!.items[indexPath.row])
         return cell
     }
     
     private let vacanciesSearchBar: UISearchBar = UISearchBar()
     private let vacanciesTableView: UITableView = UITableView()
     
+    private let layer = VacanciesListNetworkLayer()
+    private var responseModel: IVacanciesResponseModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
         layoutViews()
+        
+        layer.fetchVacanciesList { result in
+            switch result {
+            case .success(let model):
+                self.responseModel = model
+                DispatchQueue.main.async {
+                    self.vacanciesTableView.reloadData()
+                }
+            case .failure( _ ):
+                print("Error")
+            }
+        }
     }
     
     private func configureViews() {

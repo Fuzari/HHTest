@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension UITableView {
+extension UITableView {
     func dequeueReusableCellWith<T: UITableViewCell>(type: T.Type, for indexPath: IndexPath) -> T? {
         return dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as? T
     }

@@ -18,6 +18,11 @@
 		234B852C26F6292100E8754F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234B852A26F6292100E8754F /* LaunchScreen.storyboard */; };
 		234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853A26FBD48900E8754F /* UIView+Constraints .swift */; };
 		234B853E26FBD69700E8754F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B853D26FBD69700E8754F /* Colors.swift */; };
+		23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0850E27027F5C004DE914 /* HHTestApi.swift */; };
+		23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851227028051004DE914 /* URLComponents+QueryItems.swift */; };
+		23D0851727028156004DE914 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851627028156004DE914 /* RequestExecutor.swift */; };
+		23D0851E27028D1B004DE914 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0851D27028D1B004DE914 /* NetworkError.swift */; };
+		23D085212703B075004DE914 /* VacanciesListNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		234B852D26F6292100E8754F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		234B853A26FBD48900E8754F /* UIView+Constraints .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints .swift"; sourceTree = "<group>"; };
 		234B853D26FBD69700E8754F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		23D0850E27027F5C004DE914 /* HHTestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HHTestApi.swift; sourceTree = "<group>"; };
+		23D0851227028051004DE914 /* URLComponents+QueryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+QueryItems.swift"; sourceTree = "<group>"; };
+		23D0851627028156004DE914 /* RequestExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
+		23D0851D27028D1B004DE914 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListNetworkLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +68,10 @@
 		2308788B26FFE7F20012FDB7 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				2308788C26FFE8050012FDB7 /* vacancies */,
+				23D0851F2703B047004DE914 /* layers */,
+				23D0850D27026D37004DE914 /* api */,
+				23D0851527028142004DE914 /* executor */,
+				23D0851427028118004DE914 /* models */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -156,8 +169,8 @@
 		234B853926FBD41A00E8754F /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				234B853A26FBD48900E8754F /* UIView+Constraints .swift */,
-				2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */,
+				23D0851127028019004DE914 /* foundation */,
+				23D0851027028002004DE914 /* UI */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -168,6 +181,56 @@
 				234B853D26FBD69700E8754F /* Colors.swift */,
 			);
 			path = design;
+			sourceTree = "<group>";
+		};
+		23D0850D27026D37004DE914 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				23D0850E27027F5C004DE914 /* HHTestApi.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		23D0851027028002004DE914 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				234B853A26FBD48900E8754F /* UIView+Constraints .swift */,
+				2308788926FFA62D0012FDB7 /* UITableView+ClassDequeue.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		23D0851127028019004DE914 /* foundation */ = {
+			isa = PBXGroup;
+			children = (
+				23D0851227028051004DE914 /* URLComponents+QueryItems.swift */,
+			);
+			path = foundation;
+			sourceTree = "<group>";
+		};
+		23D0851427028118004DE914 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				2308788C26FFE8050012FDB7 /* vacancies */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		23D0851527028142004DE914 /* executor */ = {
+			isa = PBXGroup;
+			children = (
+				23D0851627028156004DE914 /* RequestExecutor.swift */,
+				23D0851D27028D1B004DE914 /* NetworkError.swift */,
+			);
+			path = executor;
+			sourceTree = "<group>";
+		};
+		23D0851F2703B047004DE914 /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */,
+			);
+			path = layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,13 +302,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D085212703B075004DE914 /* VacanciesListNetworkLayer.swift in Sources */,
+				23D0851727028156004DE914 /* RequestExecutor.swift in Sources */,
 				234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */,
 				2308788826FEA7790012FDB7 /* VacancyCell.swift in Sources */,
 				2308789126FFEFC60012FDB7 /* VacancyResponse.swift in Sources */,
+				23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
+				23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */,
 				2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */,
+				23D0851E27028D1B004DE914 /* NetworkError.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
 				234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */,
 			);
