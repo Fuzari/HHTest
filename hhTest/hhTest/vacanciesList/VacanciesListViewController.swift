@@ -46,9 +46,10 @@ final class VacanciesListViewController: UIViewController {
     
     private func configureVacanciesTableView() {
         vacanciesTableView.separatorStyle = .none
-        vacanciesTableView.registerCellWith(type: VacancyCell.self)
         vacanciesTableView.dataSource = dataSource
         vacanciesTableView.delegate = dataSource
+        vacanciesTableView.registerCellWith(type: VacancyCell.self)
+        vacanciesTableView.registerCellWith(type: StubCell.self)
     }
     
     private func layoutViews() {
@@ -105,5 +106,6 @@ final class VacanciesListViewController: UIViewController {
 extension VacanciesListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.input.fetchVacanciesWith(searchText: searchText)
+        dataSource.isSearchMode = !searchText.isEmpty
     }
 }

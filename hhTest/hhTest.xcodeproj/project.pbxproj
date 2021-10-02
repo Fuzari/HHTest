@@ -25,6 +25,7 @@
 		23D085212703B075004DE914 /* VacanciesListNetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */; };
 		23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */; };
 		23D085272709058C004DE914 /* VacanciesListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085262709058C004DE914 /* VacanciesListDataSource.swift */; };
+		23D0852B270913C4004DE914 /* StubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0852A270913C4004DE914 /* StubCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		23D085202703B075004DE914 /* VacanciesListNetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListNetworkLayer.swift; sourceTree = "<group>"; };
 		23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListViewModel.swift; sourceTree = "<group>"; };
 		23D085262709058C004DE914 /* VacanciesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListDataSource.swift; sourceTree = "<group>"; };
+		23D0852A270913C4004DE914 /* StubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		234B853826FBD41100E8754F /* core */ = {
 			isa = PBXGroup;
 			children = (
+				23D0852827091394004DE914 /* commonUI */,
 				234B853C26FBD68000E8754F /* design */,
 				234B853926FBD41A00E8754F /* extensions */,
 				2308788B26FFE7F20012FDB7 /* network */,
@@ -255,6 +258,22 @@
 			path = dataSource;
 			sourceTree = "<group>";
 		};
+		23D0852827091394004DE914 /* commonUI */ = {
+			isa = PBXGroup;
+			children = (
+				23D08529270913B2004DE914 /* cells */,
+			);
+			path = commonUI;
+			sourceTree = "<group>";
+		};
+		23D08529270913B2004DE914 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				23D0852A270913C4004DE914 /* StubCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,6 +357,7 @@
 				2308788A26FFA62D0012FDB7 /* UITableView+ClassDequeue.swift in Sources */,
 				23D085272709058C004DE914 /* VacanciesListDataSource.swift in Sources */,
 				23D0851E27028D1B004DE914 /* NetworkError.swift in Sources */,
+				23D0852B270913C4004DE914 /* StubCell.swift in Sources */,
 				234B852026F6291F00E8754F /* AppDelegate.swift in Sources */,
 				234B852226F6291F00E8754F /* SceneDelegate.swift in Sources */,
 			);
