@@ -12,10 +12,11 @@ final class VacanciesListViewController: UIViewController {
     private let vacanciesTableView: UITableView = UITableView()
     
     private let viewModel: VacanciesListViewModelType
+    private lazy var dataSource = VacanciesListDataSource()
     
     init(viewModel: VacanciesListViewModelType) {
         self.viewModel = viewModel
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -26,6 +27,7 @@ final class VacanciesListViewController: UIViewController {
         super.viewDidLoad()
         configureViews()
         layoutViews()
+        bindViewModel()
     }
     
     private func configureViews() {
@@ -45,6 +47,8 @@ final class VacanciesListViewController: UIViewController {
     private func configureVacanciesTableView() {
         vacanciesTableView.separatorStyle = .none
         vacanciesTableView.registerCellWith(type: VacancyCell.self)
+        vacanciesTableView.dataSource = dataSource
+        vacanciesTableView.delegate = dataSource
     }
     
     private func layoutViews() {
@@ -70,6 +74,30 @@ final class VacanciesListViewController: UIViewController {
         vacanciesSearchBar.searchTextField.textColor = .textMain
         vacanciesSearchBar.searchTextField.leftView?.tintColor = .textMain
         vacanciesTableView.backgroundColor = .mainBg
+    }
+    
+    // MARK: - Bindings
+    private func bindViewModel() {
+        bindInput()
+        bindOutput()
+    }
+    
+    private func bindInput() {
+        dataSource.fetchNextPageHandler = { [weak self] in
+            self?.viewModel.input.fetchNextVacancies()
+        }
+    }
+    
+    private func bindOutput() {
+        viewModel
+            .output
+            .successHandler = { [weak self] in
+                guard let self = self else { return }
+                self.dataSource.vacancies = self.viewModel.output.vacanciesList
+                DispatchQueue.main.async { [weak self] in
+                    self?.vacanciesTableView.reloadData()
+                }
+            }
     }
 }
 

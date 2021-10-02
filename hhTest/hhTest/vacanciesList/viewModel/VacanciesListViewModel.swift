@@ -14,8 +14,8 @@ protocol VacanciesListViewModelInput: AnyObject {
 
 protocol VacanciesListViewModelOutput: AnyObject {
     var vacanciesList: [IVacancyModel] { get }
-    var successHandler: EmptyClosure? { get }
-    var errorHandler: ParameterClosure<NetworkError>? { get }
+    var successHandler: EmptyClosure? { get set }
+    var errorHandler: ParameterClosure<NetworkError>? { get set }
 }
 
 
@@ -41,6 +41,7 @@ final class VacanciesListViewModel: VacanciesListViewModelType, VacanciesListVie
     // MARK: - Output
     var vacanciesList: [IVacancyModel] = []
     var successHandler: EmptyClosure?
+    var emptySearchTextHandler: EmptyClosure?
     var errorHandler: ParameterClosure<NetworkError>?
     
     // MARK: - Input
@@ -49,13 +50,21 @@ final class VacanciesListViewModel: VacanciesListViewModelType, VacanciesListVie
             return
         }
         
-        self.searchText = searchText
-        let text = searchText ?? ""
+        guard let text = searchText, text != "" else {
+            vacanciesList.removeAll()
+            self.searchText = nil
+            pages = nil
+            successHandler?()
+            return
+        }
+        
+        self.searchText = text
         guard text.count >= 3 else {
             return
         }
         
         vacanciesList.removeAll()
+        pages = nil
         fetchNextVacancies()
     }
     
