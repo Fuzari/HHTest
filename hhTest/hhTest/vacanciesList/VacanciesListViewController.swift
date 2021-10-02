@@ -7,46 +7,27 @@
 
 import UIKit
 
-final class VacanciesListViewController: UIViewController, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let model = responseModel else {
-            return 0
-        }
-        
-        return model.items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWith(type: VacancyCell.self, for: indexPath) else {
-            fatalError("Received unexpected nil value \(#file) \(#line)")
-        }
-        
-        cell.setup(vacancy: responseModel!.items[indexPath.row])
-        return cell
-    }
-    
+final class VacanciesListViewController: UIViewController {
     private let vacanciesSearchBar: UISearchBar = UISearchBar()
     private let vacanciesTableView: UITableView = UITableView()
     
-    private let layer = VacanciesListNetworkLayer()
-    private var responseModel: IVacanciesResponseModel?
+    private let viewModel: VacanciesListViewModelType
+    private lazy var dataSource = VacanciesListDataSource()
+    
+    init(viewModel: VacanciesListViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
         layoutViews()
-        
-        layer.fetchVacanciesList { result in
-            switch result {
-            case .success(let model):
-                self.responseModel = model
-                DispatchQueue.main.async {
-                    self.vacanciesTableView.reloadData()
-                }
-            case .failure( _ ):
-                print("Error")
-            }
-        }
+        bindViewModel()
     }
     
     private func configureViews() {
@@ -60,12 +41,14 @@ final class VacanciesListViewController: UIViewController, UITableViewDataSource
         vacanciesSearchBar.autocapitalizationType = .sentences
         vacanciesSearchBar.autocorrectionType = .yes
         vacanciesSearchBar.barStyle = .black
+        vacanciesSearchBar.delegate = self
     }
     
     private func configureVacanciesTableView() {
         vacanciesTableView.separatorStyle = .none
         vacanciesTableView.registerCellWith(type: VacancyCell.self)
-        vacanciesTableView.dataSource = self
+        vacanciesTableView.dataSource = dataSource
+        vacanciesTableView.delegate = dataSource
     }
     
     private func layoutViews() {
@@ -92,5 +75,35 @@ final class VacanciesListViewController: UIViewController, UITableViewDataSource
         vacanciesSearchBar.searchTextField.leftView?.tintColor = .textMain
         vacanciesTableView.backgroundColor = .mainBg
     }
+    
+    // MARK: - Bindings
+    private func bindViewModel() {
+        bindInput()
+        bindOutput()
+    }
+    
+    private func bindInput() {
+        dataSource.fetchNextPageHandler = { [weak self] in
+            self?.viewModel.input.fetchNextVacancies()
+        }
+    }
+    
+    private func bindOutput() {
+        viewModel
+            .output
+            .successHandler = { [weak self] in
+                guard let self = self else { return }
+                self.dataSource.vacancies = self.viewModel.output.vacanciesList
+                DispatchQueue.main.async { [weak self] in
+                    self?.vacanciesTableView.reloadData()
+                }
+            }
+    }
 }
 
+// MARK: - UISearchBarDelegate
+extension VacanciesListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.input.fetchVacanciesWith(searchText: searchText)
+    }
+}
