@@ -11,6 +11,17 @@ final class VacanciesListViewController: UIViewController {
     private let vacanciesSearchBar: UISearchBar = UISearchBar()
     private let vacanciesTableView: UITableView = UITableView()
     
+    private let viewModel: VacanciesListViewModelType
+    
+    init(viewModel: VacanciesListViewModelType) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
@@ -28,6 +39,7 @@ final class VacanciesListViewController: UIViewController {
         vacanciesSearchBar.autocapitalizationType = .sentences
         vacanciesSearchBar.autocorrectionType = .yes
         vacanciesSearchBar.barStyle = .black
+        vacanciesSearchBar.delegate = self
     }
     
     private func configureVacanciesTableView() {
@@ -61,3 +73,9 @@ final class VacanciesListViewController: UIViewController {
     }
 }
 
+// MARK: - UISearchBarDelegate
+extension VacanciesListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.input.fetchVacanciesWith(searchText: searchText)
+    }
+}
