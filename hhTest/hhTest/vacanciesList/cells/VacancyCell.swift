@@ -72,7 +72,7 @@ final class VacancyCell: UITableViewCell {
     // MARK: - Public methods
     func setup(vacancy: IVacancyModel) {
         vacancyNameLabel.text = vacancy.name
-        salaryLabel.text = "\(vacancy.salary.lowerBoundary ?? 0) \(vacancy.salary.currency ?? "")"
+        salaryLabel.text = "\(vacancy.salary?.lowerBoundary ?? 0) \(vacancy.salary?.currency ?? "")"
         areaLabel.text = vacancy.area.name
         publishmentDateLabel.text = DateFormatter.localizedString(from: vacancy.publishedAt,
                                                                   dateStyle: .short, timeStyle: .short)
