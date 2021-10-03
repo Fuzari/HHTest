@@ -11,7 +11,10 @@ typealias VacanciesResponseResult = Result<VacanciesResponseModel, NetworkError>
 typealias VacanciesResponseCompletion = ParameterClosure<VacanciesResponseResult>
 
 protocol IVacanciesListNetworkLayer {
-    func fetchVacanciesList(searchText: String?, perPage: Int, pageNumber: Int, completion: @escaping VacanciesResponseCompletion)
+    func fetchVacanciesList(searchText: String?,
+                            perPage: Int,
+                            pageNumber: Int,
+                            completion: @escaping VacanciesResponseCompletion)
 }
 
 final class VacanciesListNetworkLayer: IVacanciesListNetworkLayer {
@@ -22,7 +25,10 @@ final class VacanciesListNetworkLayer: IVacanciesListNetworkLayer {
         self.executor = executor
     }
     
-    func fetchVacanciesList(searchText: String?, perPage: Int, pageNumber: Int, completion: @escaping VacanciesResponseCompletion) {
+    func fetchVacanciesList(searchText: String?,
+                            perPage: Int,
+                            pageNumber: Int,
+                            completion: @escaping VacanciesResponseCompletion) {
         var urlComponents = URLComponents()
         urlComponents.scheme = HHApiScheme.https.rawValue
         urlComponents.host = HHApiHost.main.rawValue
