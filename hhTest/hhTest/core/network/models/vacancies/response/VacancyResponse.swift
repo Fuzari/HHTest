@@ -43,7 +43,7 @@ struct EmployerModel: IEmployerModel, Decodable {
 struct VacancyModel: IVacancyModel, Decodable {
     var id: String
     var name: String
-    var salary: ISalaryModel
+    var salary: ISalaryModel?
     var area: IAreaModel
     var publishedAt: Date
     var employer: IEmployerModel
@@ -62,7 +62,7 @@ struct VacancyModel: IVacancyModel, Decodable {
         
         id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
-        salary = try values.decode(SalaryModel.self, forKey: .salary)
+        salary = try? values.decode(SalaryModel.self, forKey: .salary)
         area = try values.decode(AreaModel.self, forKey: .area)
         publishedAt = try values.decode(Date.self, forKey: .publishedAt)
         employer = try values.decode(EmployerModel.self, forKey: .employer)
@@ -71,23 +71,17 @@ struct VacancyModel: IVacancyModel, Decodable {
 
 struct VacanciesResponseModel: IVacanciesResponseModel, Decodable {
     var items: [IVacancyModel]
-    var perPage: Int
     var pages: Int
-    var found: Int
     
     enum VacanciesResponseKeys: String, CodingKey {
         case items
-        case perPage = "per_page"
         case pages
-        case found
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: VacanciesResponseKeys.self)
         
         items = try values.decode([VacancyModel].self, forKey: .items)
-        perPage = try values.decode(Int.self, forKey: .perPage)
         pages = try values.decode(Int.self, forKey: .pages)
-        found = try values.decode(Int.self, forKey: .found)
     }
 }

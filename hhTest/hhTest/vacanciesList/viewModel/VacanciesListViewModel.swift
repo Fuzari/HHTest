@@ -70,6 +70,10 @@ final class VacanciesListViewModel: VacanciesListViewModelType, VacanciesListVie
     }
     
     func fetchNextVacancies() {
+        guard !isEndOfList else {
+            return
+        }
+        
         onStartRequest?()
         let pageNumber = nextPageNumber
         networkLayer.fetchVacanciesList(searchText: searchText, perPage: itemsPerPage, pageNumber: pageNumber) { [weak self] result in
@@ -86,21 +90,29 @@ final class VacanciesListViewModel: VacanciesListViewModelType, VacanciesListVie
     // MARK: - Helpers
     private func handleResponse(model: IVacanciesResponseModel) {
         vacanciesList.append(contentsOf: model.items)
-        if pages != nil {
+        if pages == nil {
             pages = model.pages
         }
     }
     
-    var nextPageNumber: Int {
+    private var nextPageNumber: Int {
         guard !vacanciesList.isEmpty else {
             return 0
         }
         
         let remainder = vacanciesList.count % itemsPerPage
         guard remainder != 0 else {
-            return (vacanciesList.count / itemsPerPage) + 1
+            return (vacanciesList.count / itemsPerPage)
         }
 
-        return ((vacanciesList.count + (itemsPerPage - remainder)) / itemsPerPage) + 1
+        return ((vacanciesList.count + (itemsPerPage - remainder)) / itemsPerPage)
+    }
+    
+    private var isEndOfList: Bool {
+        guard let pages = pages else {
+            return false
+        }
+        
+        return pages == nextPageNumber
     }
 }

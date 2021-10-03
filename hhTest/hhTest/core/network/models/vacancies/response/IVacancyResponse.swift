@@ -27,7 +27,7 @@ protocol IEmployerModel {
 protocol IVacancyModel {
     var id: String { get }
     var name: String { get }
-    var salary: ISalaryModel { get }
+    var salary: ISalaryModel? { get }
     var area: IAreaModel { get }
     var publishedAt: Date { get }
     var employer: IEmployerModel { get }
@@ -35,7 +35,5 @@ protocol IVacancyModel {
 
 protocol IVacanciesResponseModel {
     var items: [IVacancyModel] { get }
-    var perPage: Int { get }
     var pages: Int { get }
-    var found: Int { get }
 }
