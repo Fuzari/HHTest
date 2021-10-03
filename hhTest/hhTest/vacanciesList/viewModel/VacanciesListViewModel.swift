@@ -64,13 +64,13 @@ final class VacanciesListViewModel: VacanciesListViewModelType, VacanciesListVie
             return
         }
         
-        onStartRequest?()
         vacanciesList.removeAll()
         pages = nil
         fetchNextVacancies()
     }
     
     func fetchNextVacancies() {
+        onStartRequest?()
         let pageNumber = nextPageNumber
         networkLayer.fetchVacanciesList(searchText: searchText, perPage: itemsPerPage, pageNumber: pageNumber) { [weak self] result in
             switch result {
@@ -92,6 +92,10 @@ final class VacanciesListViewModel: VacanciesListViewModelType, VacanciesListVie
     }
     
     var nextPageNumber: Int {
+        guard !vacanciesList.isEmpty else {
+            return 0
+        }
+        
         let remainder = vacanciesList.count % itemsPerPage
         guard remainder != 0 else {
             return (vacanciesList.count / itemsPerPage) + 1
