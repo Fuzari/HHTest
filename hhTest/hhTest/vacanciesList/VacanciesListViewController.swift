@@ -10,6 +10,7 @@ import UIKit
 final class VacanciesListViewController: UIViewController {
     private let vacanciesSearchBar: UISearchBar = UISearchBar()
     private let vacanciesTableView: UITableView = UITableView()
+    private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     
     private let viewModel: VacanciesListViewModelType
     private lazy var dataSource = VacanciesListDataSource()
@@ -31,6 +32,7 @@ final class VacanciesListViewController: UIViewController {
     }
     
     private func configureViews() {
+        activityIndicator.hidesWhenStopped = true
         configureVacanciesSearchBar()
         configureVacanciesTableView()
         applyTheme()
@@ -55,6 +57,7 @@ final class VacanciesListViewController: UIViewController {
     private func layoutViews() {
         layoutVacanciesSearchBar()
         layoutVacanciesTableView()
+        layoutActivityIndicator()
     }
     
     private func layoutVacanciesSearchBar() {
@@ -66,6 +69,11 @@ final class VacanciesListViewController: UIViewController {
         vacanciesTableView.fillToSuperview()
     }
     
+    private func layoutActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.fillToSuperview()
+    }
+    
     private func applyTheme() {
         view.backgroundColor = .clear
         navigationController?.navigationBar.barTintColor = .secBg
@@ -75,6 +83,7 @@ final class VacanciesListViewController: UIViewController {
         vacanciesSearchBar.searchTextField.textColor = .textMain
         vacanciesSearchBar.searchTextField.leftView?.tintColor = .textMain
         vacanciesTableView.backgroundColor = .mainBg
+        activityIndicator.color = .textMain
     }
     
     // MARK: - Bindings
@@ -96,7 +105,22 @@ final class VacanciesListViewController: UIViewController {
                 guard let self = self else { return }
                 self.dataSource.vacancies = self.viewModel.output.vacanciesList
                 DispatchQueue.main.async { [weak self] in
+                    self?.activityIndicator.stopAnimating()
                     self?.vacanciesTableView.reloadData()
+                }
+            }
+        
+        viewModel
+            .output
+            .onStartRequest = { [weak self] in
+                self?.activityIndicator.startAnimating()
+            }
+        
+        viewModel
+            .output
+            .errorHandler = { [weak self] (_) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.activityIndicator.stopAnimating()
                 }
             }
     }
