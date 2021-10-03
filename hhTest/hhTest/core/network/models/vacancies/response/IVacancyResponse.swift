@@ -35,7 +35,5 @@ protocol IVacancyModel {
 
 protocol IVacanciesResponseModel {
     var items: [IVacancyModel] { get }
-    var perPage: Int { get }
     var pages: Int { get }
-    var found: Int { get }
 }

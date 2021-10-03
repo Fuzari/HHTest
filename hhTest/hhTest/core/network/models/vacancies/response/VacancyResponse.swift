@@ -71,23 +71,17 @@ struct VacancyModel: IVacancyModel, Decodable {
 
 struct VacanciesResponseModel: IVacanciesResponseModel, Decodable {
     var items: [IVacancyModel]
-    var perPage: Int
     var pages: Int
-    var found: Int
     
     enum VacanciesResponseKeys: String, CodingKey {
         case items
-        case perPage = "per_page"
         case pages
-        case found
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: VacanciesResponseKeys.self)
         
         items = try values.decode([VacancyModel].self, forKey: .items)
-        perPage = try values.decode(Int.self, forKey: .perPage)
         pages = try values.decode(Int.self, forKey: .pages)
-        found = try values.decode(Int.self, forKey: .found)
     }
 }
