@@ -20,6 +20,7 @@ final class VacancyCell: UITableViewCell {
         label.textAlignment = .left
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 22.0)
         return label
     }()
     
@@ -28,6 +29,7 @@ final class VacancyCell: UITableViewCell {
         label.textAlignment = .left
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 18.0)
         return label
     }()
     
@@ -36,6 +38,7 @@ final class VacancyCell: UITableViewCell {
         label.textAlignment = .left
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 15.0)
         return label
     }()
     
@@ -44,6 +47,7 @@ final class VacancyCell: UITableViewCell {
         label.textAlignment = .left
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 12.0)
         return label
     }()
     
@@ -52,6 +56,7 @@ final class VacancyCell: UITableViewCell {
         label.textAlignment = .left
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 15.0)
         return label
     }()
     
@@ -72,14 +77,44 @@ final class VacancyCell: UITableViewCell {
     // MARK: - Public methods
     func setup(vacancy: IVacancyModel) {
         vacancyNameLabel.text = vacancy.name
-        salaryLabel.text = "\(vacancy.salary?.lowerBoundary ?? 0) \(vacancy.salary?.currency ?? "")"
+        salaryLabel.text = salaryInfo(salaryModel: vacancy.salary)
         areaLabel.text = vacancy.area.name
-        publishmentDateLabel.text = DateFormatter.localizedString(from: vacancy.publishedAt,
-                                                                  dateStyle: .short, timeStyle: .short)
+        publishmentDateLabel.text = dateInfo(date: vacancy.publishedAt)
         companyNameLabel.text = vacancy.employer.name
     }
     
     // MARK: - Private methods
+    private func salaryInfo(salaryModel: ISalaryModel?) -> String {
+        guard let salary = salaryModel else {
+            return "Заработная плата не указана"
+        }
+        
+        var resultText: String = ""
+        if let from = salary.lowerBoundary, let to = salary.upperBoundary {
+            resultText = "От \(from) до \(to) \(salary.currency ?? "")"
+        }
+        if let to = salary.upperBoundary {
+            resultText = "До \(to) \(salary.currency ?? "")"
+        }
+        if let from = salary.lowerBoundary {
+            resultText = "От \(from) \(salary.currency ?? "")"
+        }
+       
+        guard let gross = salary.gross else {
+            return resultText
+        }
+        
+        let grossText = gross ? "gross" : "net"
+        resultText += " \(grossText)"
+        return resultText
+    }
+    
+    private func dateInfo(date: Date) -> String {
+        let timeText = DateFormatterService.shared.hoursAndMinutesFrom(date: date)
+        let dateText = DateFormatterService.shared.shortDate(from: date)
+        return "\(timeText), \(dateText)"
+    }
+    
     private func configureCell() {
         selectionStyle = .none
         layoutViews()
@@ -146,8 +181,7 @@ final class VacancyCell: UITableViewCell {
         publishmentDateLabel.translatesAutoresizingMaskIntoConstraints = false
         [publishmentDateLabel.topAnchor.constraint(equalTo: companyNameLabel.bottomAnchor,
                                                constant: 5),
-         publishmentDateLabel.leftAnchor.constraint(equalTo: holderView.leftAnchor,
-                                                constant: 16),
+         publishmentDateLabel.leftAnchor.constraint(greaterThanOrEqualTo: holderView.leftAnchor, constant: 16),
          publishmentDateLabel.rightAnchor.constraint(equalTo: holderView.rightAnchor,
                                                  constant: -16),
          publishmentDateLabel.bottomAnchor.constraint(equalTo: holderView.bottomAnchor,
