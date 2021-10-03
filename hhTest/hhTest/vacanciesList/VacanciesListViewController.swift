@@ -118,9 +118,11 @@ final class VacanciesListViewController: UIViewController {
         
         viewModel
             .output
-            .errorHandler = { [weak self] (_) in
+            .errorHandler = { [weak self] (error) in
                 DispatchQueue.main.async { [weak self] in
-                    self?.activityIndicator.stopAnimating()
+                    guard let self = self else { return }
+                    self.activityIndicator.stopAnimating()
+                    AnnouncementView.showAnnouncement(context: self.view, title: "Упс!", message: error.description)
                 }
             }
     }

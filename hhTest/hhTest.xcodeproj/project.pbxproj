@@ -26,6 +26,7 @@
 		23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */; };
 		23D085272709058C004DE914 /* VacanciesListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085262709058C004DE914 /* VacanciesListDataSource.swift */; };
 		23D0852B270913C4004DE914 /* StubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0852A270913C4004DE914 /* StubCell.swift */; };
+		23D0852E27092480004DE914 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0852D27092480004DE914 /* AnnouncementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		23D085232708BCC0004DE914 /* VacanciesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListViewModel.swift; sourceTree = "<group>"; };
 		23D085262709058C004DE914 /* VacanciesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListDataSource.swift; sourceTree = "<group>"; };
 		23D0852A270913C4004DE914 /* StubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubCell.swift; sourceTree = "<group>"; };
+		23D0852D27092480004DE914 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				23D08529270913B2004DE914 /* cells */,
+				23D0852C27092453004DE914 /* views */,
 			);
 			path = commonUI;
 			sourceTree = "<group>";
@@ -272,6 +275,14 @@
 				23D0852A270913C4004DE914 /* StubCell.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		23D0852C27092453004DE914 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				23D0852D27092480004DE914 /* AnnouncementView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 				2308789126FFEFC60012FDB7 /* VacancyResponse.swift in Sources */,
 				23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */,
 				23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */,
+				23D0852E27092480004DE914 /* AnnouncementView.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
