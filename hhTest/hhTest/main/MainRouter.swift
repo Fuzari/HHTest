@@ -24,6 +24,8 @@ final class MainRouter: IMainRouter {
         let layer = VacanciesListNetworkLayer(executor: executor)
         let vm = VacanciesListViewModel(networkLayer: layer)
         let controller = VacanciesListViewController(viewModel: vm)
+        let router = VacanciesListRouter(context: controller)
+        controller.router = router
         let nc = UINavigationController(rootViewController: controller)
         nc.modalTransitionStyle = .coverVertical
         nc.modalPresentationStyle = .overFullScreen

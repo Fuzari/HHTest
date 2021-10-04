@@ -40,6 +40,8 @@ final class VacanciesListViewController: UIViewController {
     private let viewModel: VacanciesListViewModelType
     private lazy var dataSource = VacanciesListDataSource()
     
+    var router: IVacanciesListRouter?
+    
     init(viewModel: VacanciesListViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -57,7 +59,7 @@ final class VacanciesListViewController: UIViewController {
     }
     
     @objc private func exitButtonTapped() {
-        
+        router?.dismiss(completion: nil)
     }
     
     private func configureViews() {
