@@ -29,6 +29,9 @@
 		23D0852E27092480004DE914 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0852D27092480004DE914 /* AnnouncementView.swift */; };
 		23D085312709E8FF004DE914 /* DateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085302709E8FF004DE914 /* DateFormatterService.swift */; };
 		23D085342709E982004DE914 /* IDateFormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D085332709E982004DE914 /* IDateFormatterService.swift */; };
+		23D08537270B1065004DE914 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D08536270B1065004DE914 /* MainViewController.swift */; };
+		23D08539270B1573004DE914 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D08538270B1573004DE914 /* MainRouter.swift */; };
+		23D0853C270B211A004DE914 /* VacanciesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D0853B270B211A004DE914 /* VacanciesListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		23D0852D27092480004DE914 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		23D085302709E8FF004DE914 /* DateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterService.swift; sourceTree = "<group>"; };
 		23D085332709E982004DE914 /* IDateFormatterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDateFormatterService.swift; sourceTree = "<group>"; };
+		23D08536270B1065004DE914 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		23D08538270B1573004DE914 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		23D0853B270B211A004DE914 /* VacanciesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 				234B853326F6296E00E8754F /* app */,
 				234B853826FBD41100E8754F /* core */,
 				234B853526F629A300E8754F /* launchScreen */,
+				23D08535270B104E004DE914 /* main */,
 				234B853426F6298000E8754F /* resources */,
 				234B853626F62AD200E8754F /* vacanciesList */,
 			);
@@ -164,6 +171,7 @@
 			children = (
 				2308788626FEA73D0012FDB7 /* cells */,
 				23D085252709056E004DE914 /* dataSource */,
+				23D0853A270B20F9004DE914 /* router */,
 				234B852326F6291F00E8754F /* VacanciesListViewController.swift */,
 				23D085222708BB85004DE914 /* viewModel */,
 			);
@@ -307,6 +315,23 @@
 			path = dateFormatter;
 			sourceTree = "<group>";
 		};
+		23D08535270B104E004DE914 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				23D08536270B1065004DE914 /* MainViewController.swift */,
+				23D08538270B1573004DE914 /* MainRouter.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		23D0853A270B20F9004DE914 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				23D0853B270B211A004DE914 /* VacanciesListRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D08537270B1065004DE914 /* MainViewController.swift in Sources */,
 				23D085212703B075004DE914 /* VacanciesListNetworkLayer.swift in Sources */,
 				23D0851727028156004DE914 /* RequestExecutor.swift in Sources */,
 				234B853B26FBD48900E8754F /* UIView+Constraints .swift in Sources */,
@@ -384,9 +410,11 @@
 				23D085342709E982004DE914 /* IDateFormatterService.swift in Sources */,
 				23D085242708BCC0004DE914 /* VacanciesListViewModel.swift in Sources */,
 				23D0851327028051004DE914 /* URLComponents+QueryItems.swift in Sources */,
+				23D08539270B1573004DE914 /* MainRouter.swift in Sources */,
 				23D0852E27092480004DE914 /* AnnouncementView.swift in Sources */,
 				234B853E26FBD69700E8754F /* Colors.swift in Sources */,
 				23D085312709E8FF004DE914 /* DateFormatterService.swift in Sources */,
+				23D0853C270B211A004DE914 /* VacanciesListRouter.swift in Sources */,
 				2308788E26FFE8900012FDB7 /* IVacancyResponse.swift in Sources */,
 				234B852426F6291F00E8754F /* VacanciesListViewController.swift in Sources */,
 				23D0850F27027F5C004DE914 /* HHTestApi.swift in Sources */,
