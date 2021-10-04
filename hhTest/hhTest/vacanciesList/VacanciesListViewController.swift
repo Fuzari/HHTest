@@ -8,9 +8,34 @@
 import UIKit
 
 final class VacanciesListViewController: UIViewController {
-    private let vacanciesSearchBar: UISearchBar = UISearchBar()
-    private let vacanciesTableView: UITableView = UITableView()
-    private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    private let vacanciesSearchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.keyboardType = .default
+        searchBar.autocapitalizationType = .sentences
+        searchBar.autocorrectionType = .yes
+        searchBar.barStyle = .black
+        return searchBar
+    }()
+    
+    private let exitButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.style = .plain
+        button.title = "Выход"
+        return button
+    }()
+    
+    private let vacanciesTableView: UITableView = {
+        let table = UITableView()
+        table.separatorStyle = .none
+        return table
+    }()
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
     
     private let viewModel: VacanciesListViewModelType
     private lazy var dataSource = VacanciesListDataSource()
@@ -31,23 +56,27 @@ final class VacanciesListViewController: UIViewController {
         bindViewModel()
     }
     
+    @objc private func exitButtonTapped() {
+        
+    }
+    
     private func configureViews() {
-        activityIndicator.hidesWhenStopped = true
         configureVacanciesSearchBar()
+        configureExitButton()
         configureVacanciesTableView()
         applyTheme()
     }
     
     private func configureVacanciesSearchBar() {
-        vacanciesSearchBar.keyboardType = .default
-        vacanciesSearchBar.autocapitalizationType = .sentences
-        vacanciesSearchBar.autocorrectionType = .yes
-        vacanciesSearchBar.barStyle = .black
         vacanciesSearchBar.delegate = self
     }
     
+    private func configureExitButton() {
+        exitButton.target = self
+        exitButton.action = #selector(exitButtonTapped)
+    }
+    
     private func configureVacanciesTableView() {
-        vacanciesTableView.separatorStyle = .none
         vacanciesTableView.dataSource = dataSource
         vacanciesTableView.delegate = dataSource
         vacanciesTableView.registerCellWith(type: VacancyCell.self)
@@ -56,12 +85,17 @@ final class VacanciesListViewController: UIViewController {
     
     private func layoutViews() {
         layoutVacanciesSearchBar()
+        layoutExitButton()
         layoutVacanciesTableView()
         layoutActivityIndicator()
     }
     
     private func layoutVacanciesSearchBar() {
         navigationItem.titleView = vacanciesSearchBar
+    }
+    
+    private func layoutExitButton() {
+        navigationItem.rightBarButtonItem = exitButton
     }
     
     private func layoutVacanciesTableView() {
@@ -82,6 +116,7 @@ final class VacanciesListViewController: UIViewController {
         vacanciesSearchBar.tintColor = .textMain
         vacanciesSearchBar.searchTextField.textColor = .textMain
         vacanciesSearchBar.searchTextField.leftView?.tintColor = .textMain
+        exitButton.tintColor = .textMain
         vacanciesTableView.backgroundColor = .mainBg
         activityIndicator.color = .textMain
     }
